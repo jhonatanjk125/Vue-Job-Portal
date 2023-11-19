@@ -14,9 +14,10 @@
         </nav>
         <div class="ml-auto flex items-center">
           <profile-image v-if="isLoggedin"/>
-          <action-button v-else text="Sign in" @click="loginUser" />
+          <action-button v-else text="Sign in" type="primary" @click="loginUser" />
         </div>
       </div>
+      <sub-nav v-if="isLoggedin"/>
     </div>
   </header>
 </template>
@@ -24,11 +25,13 @@
 <script>
 import ActionButton from './ActionButton.vue';
 import ProfileImage from './ProfileImage.vue';
+import SubNav from './SubNav.vue';
 export default {
   name: 'MainNav',
   components: {
     ActionButton,
     ProfileImage,
+    SubNav
   },
   data() {
     return {
