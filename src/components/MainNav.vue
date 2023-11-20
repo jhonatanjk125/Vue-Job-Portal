@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full text-sm">
+  <header v-bind:class="['w-full', 'text-sm', headerHeightClass]">
     <div class="fixed left-0 top-0 h-16 w-full bg-white">
       <div class="mx-auto flex h-full flex-nowrap border-b border-solid border-brand-gray-1 px-8">
         <a v-bind:href="url" class="flex h-full items-center text-xl">
@@ -40,6 +40,11 @@ export default {
       menuItems: ['Teams', 'Locations', 'Life at G careers', 'How we hire', 'Students', 'Jobs'],
       isLoggedin: false,
     };
+  },
+  computed: {
+    headerHeightClass() {
+      return this.isLoggedin ? 'h-32' : 'h-16';
+    }
   },
   methods: {
     loginUser() {
